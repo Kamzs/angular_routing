@@ -7,4 +7,24 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-routing';
+
+  showHome: boolean;
+  showCourses: boolean;
+  showAbout: boolean;
+
+  openHome() {
+    this.showHome = true;
+    this.showCourses = false;
+    this.showAbout = false;
+  }
+  openCourses() {
+    this.showHome = false;
+    this.showCourses = true;
+    this.showAbout = false;
+  }
+  openAbout() {
+    this.showHome = false;
+    this.showCourses = false;
+    this.showAbout = true;
+  }
 }
