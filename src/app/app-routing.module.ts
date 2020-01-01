@@ -3,6 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { CoursesComponent } from './courses/courses.component';
 import { AboutComponent } from './about/about.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CourseDetailComponent } from './courses/course-detail/course-detail.component';
+import { ListofcoursesComponent } from './courses/listofcourses/listofcourses.component';
 
 
 const routes: Routes = [
@@ -21,7 +24,21 @@ const routes: Routes = [
 },
 {
   path: 'courses',
-  component: CoursesComponent
+  component: CoursesComponent,
+  children: [
+    {
+      path: '',
+      component: ListofcoursesComponent
+    },
+    {
+      path: ':id',
+      component: CourseDetailComponent
+    }
+  ]
+},
+{
+  path: '**',
+  component: PageNotFoundComponent
 }
 
 ];
